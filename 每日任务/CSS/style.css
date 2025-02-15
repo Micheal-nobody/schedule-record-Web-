@@ -1,0 +1,200 @@
+* {
+    text-align: center;
+    margin: 0;
+}
+
+body {
+    background-color: #f2f2f2;
+}
+
+button {
+    cursor: pointer;
+}
+
+#overlay {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 999;
+    display: none;
+}
+
+#wrapper {
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    display: flex;
+}
+
+/* 表格样式 */
+table {
+    border-collapse: collapse;
+    margin: 20px auto;
+    width: 80%;
+}
+
+/* 任务完成状态 */
+.date-cell {
+    background-color: red;
+    border-radius: 5px;
+    color: white;
+}
+
+.date-cell.done {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* 操作按钮样式 */
+.action-cell button {
+    background-color: transparent;
+    color: black;
+    border: none;
+}
+
+/* 添加日程按钮样式 */
+#add-task-btn {
+    background-color: #4CAF50;
+    color: black;
+    width: 70px;
+    display: inline-block;
+    margin: 20px 10px 0 auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+/* 添加日程div样式 */
+#popup {
+    width: 100%;
+    height: 100%;
+    background-color: snow;
+    display: block;
+    padding: 20px;
+}
+
+#popup-title {
+    font-size: 20px;
+    display: inline-block;
+}
+
+/* 保存按钮样式 */
+#save-btn {
+    background-color: blue;
+    color: white;
+    display: inline-block;
+    margin: 20px 10px 0 auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+/* 删除按钮样式 */
+#clear-btn {
+    background-color: red;
+    color: white;
+    display: inline-block;
+    margin: 20px 10px 0 auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+/* 查找div样式 */
+.search-div {
+    margin: 20px auto;
+}
+
+.search-div label {
+    margin: 0 10px;
+    font-size: 15px;
+}
+
+#search-part-div {
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+#search-part-div span {
+    margin: 0 10px;
+    font-size: 15px;
+}
+
+.total {
+    background-color: blue;
+    border-radius: 5px;
+    color: white;
+}
+
+.completed {
+    background-color: green;
+    border-radius: 5px;
+    color: white;
+}
+
+.uncompleted {
+    background-color: red;
+    border-radius: 5px;
+    color: white;
+}
+
+#search-part-div button {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#search-name-input {
+    width: 60%;
+}
+
+/* 查找div样式结束 */
+
+/* 日程修改div样式 */
+#modify-task-div {
+    z-index: 1000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    background-color: #fff;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+
+#modify-task-div .part-div {
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#modify-task-div label {
+    margin: 20px 0 0 10px;
+    font-size: 15px;
+    width: 20%;
+}
+
+#modify-task-div input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 20px 0 10px;
+}
+
+#modify-task-div button {
+    background-color: blue;
+    color: white;
+    display: inline-block;
+    margin: 20px 10px 0 auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}

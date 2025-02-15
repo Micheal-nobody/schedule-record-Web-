@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日任务</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/dailytask.css">
+</head>
+
+<body>
+    <!-- 遮罩层 -->
+    <div id="overlay"></div>
+
+    <!-- 使用守则 -->
+    <h1>红色代表未完成，绿色代表已完成</h1>
+    <p>网页自动保存，保存按钮不小心点到了清空缓存可以补救</p>
+    <p>任务添加部分，每次点击“添加”后，不会自动清空输入框，方便测试</p>
+    <!-- 日期表格 -->
+
+    <!-- 保存按钮 -->
+    <!-- <button id="" onclick=" refreshTasksCount()">sdhfuisdfu</button> -->
+    <button id="save-btn" onclick="saveToLocalStorage();alert('保存成功！')">保存</button>
+    <button id="clear-btn" onclick="clearlocalStorage()">清空缓存</button>
+
+    <!-- 添加日程 -->
+    <div id="popup">
+        <h2 id="popup-title">添加日程:</h2>
+        <input type="date" id="task-date-input">
+        <input type="text" id="task-name-input" placeholder="任务名">
+        <input type="text" id="task-remark-input" placeholder="备注(可选)">
+
+        <button id="add-task-btn" onclick="addTask()">添加</button>
+
+        <button id="add-daily-task-btn" onclick="DailyTask()">添加为常见任务</button>
+    </div>
+
+    <!-- 任务修改div -->
+    <div id="modify-task-div">
+        <div class="part-div">
+            <label for="modify-date-input">日期:</label>
+            <input type="date" id="modify-date-input">
+        </div>
+        <div class="part-div">
+            <label for="modify-name-input">任务名:</label>
+            <input type="text" id="modify-name-input">
+        </div>
+
+        <div class="part-div">
+            <label for="modify-remark-input">备注:</label>
+            <input type="text" id="modify-remark-input">
+        </div>
+
+        <div class="part-div">
+            <button id="yes-modify-btn" onclick="yesmodifyTask()">修改</button>
+            <button id="cancel-modify-btn" onclick="cancelModify()">取消</button>
+        </div>
+    </div>
+
+    <!--  显示部分 -->
+    <div id="wrapper">
+        
+        <!-- 任务查找和排序 -->
+        <div class="search-div">
+            <!-- 任务状态统计 -->
+            <div id="search-part-div">
+                <div class="task-status-div total">
+                    <span class="task-status-span">总任务数</span>
+                    <span id="total-num">0</span>
+                </div>
+                <div class="task-status-div completed">
+                    <span class="task-status-span ">已完成</span>
+                    <span id="completed-num">0</span>
+                </div>
+                <div class="task-status-div uncompleted ">
+                    <span class="task-status-span">未完成</span>
+                    <span id="uncompleted-num">0</span>
+                </div>
+            </div>
+
+            <div id="search-part-div">
+                <button id="show-all-btn" onclick="showAllTasks()">显示全部</button>
+                <button id="show-completed-btn" onclick="showCompletedTasks()">显示已完成</button>
+                <button id="show-uncompleted-btn" onclick="showUncompletedTasks()">显示未完成</button>
+            </div>
+            <div id="search-part-div">
+                <label for="order-select">显示顺序:</label>
+                <select id="order-select" onchange="changeOrder()">
+                    <option value="desc">按日期降序</option>
+                    <option value="asc">按日期升序</option>
+                </select>
+            </div>
+            <div id="search-part-div">
+                <label for="search-input">按日期查找</label>
+                <input type="date" id="search-date-input" onchange="searchTasksDate()">
+            </div>
+            <div id="search-part-div">
+                <label for="search-name-input">按名称查找</label>
+                <input type="text" id="search-name-input" placeholder="请输入任务名">
+            </div>
+
+            <!-- 每日任务表格 -->
+            <div id="dailyTasksDiv">
+                <table id="daily-tasks-table">
+                    <!-- 表格名称 -->
+                    <caption>每日任务表</caption>
+                    <!-- 表头 -->
+                    <thead>
+                        <tr>
+                            <th>任务名</th>
+                            <th>备注</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+            
+                    <!-- 表格内容 -->
+                    <tbody id="daily-tasks-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 全部任务表格 -->
+        <table id="tasks-table">
+            <!-- 表格名称 -->
+            <caption>任务检查表</caption>
+            <!-- 表头 -->
+            <thead>
+                <tr>
+                    <th>日期</th>
+                    <th>任务名</th>
+                    <th>备注</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+
+            <!-- 表格内容 -->
+            <tbody id="tasks-table-body"></tbody>
+        </table>
+    </div>
+
+    <!-- 脚本 -->
+    <script src="./JS/main.js"></script>
+    <script src="./JS/tasks.js"></script>
+    <script src="./JS/localStorage.js"></script>
+    <script src="./JS/Dailytasks.js"></script>
+</body>
+
+</html>

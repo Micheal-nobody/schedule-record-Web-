@@ -98,28 +98,24 @@ function changeOrder() {
     }
 
     //刷新表格
-    loadFromtaskList(AlltaskList);
+    loadTOMainTable(AlltaskList);
 }
 
 //显示全部任务
 function showAllTasks() {
-    loadFromtaskList(AlltaskList);
+    loadTOMainTable(AlltaskList);
 }
 
 //显示已完成任务
 function showCompletedTasks() {
-    const completedTaskList = AlltaskList.filter(function (task) {
-        return task.isdone === true;
-    });
-    loadFromtaskList(completedTaskList);
+    const completedTaskList = AlltaskList.filter((task) => task.isdone);
+    loadTOMainTable(completedTaskList);
 }
 
 //显示未完成任务
 function showUncompletedTasks() {
-    const uncompletedTaskList = AlltaskList.filter(function (task) {
-        return task.isdone === false;
-    });
-    loadFromtaskList(uncompletedTaskList);
+    const uncompletedTaskList = AlltaskList.filter((task) => !task.isdone);
+    loadTOMainTable(uncompletedTaskList);
 }
 
 //按照日期搜索任务
@@ -127,10 +123,9 @@ function searchTasksDate() {
     const searchDate = document.getElementById("search-date-input").value.trim();
 
     //将搜索到的结果储存在resultTaskList中
-    const resultTaskList = AlltaskList.filter(function (task) {
-        return task.date === searchDate;
-    });
+    const resultTaskList = AlltaskList.filter((task) => task.date === searchDate);
 
     //刷新表格
-    loadFromtaskList(resultTaskList);
+    loadTOMainTable(resultTaskList);
 }
+
